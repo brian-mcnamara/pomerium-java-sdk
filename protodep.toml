@@ -1,28 +1,32 @@
-proto_outdir = "./ext"
+proto_outdir = "./proto"
 
 [[dependencies]]
 target = "github.com/pomerium/pomerium/pkg/grpc"
 branch = "main"
-path = "../proto"
+path = "pomerium"
 
 [[dependencies]]
 target = "github.com/pomerium/enterprise-client/protos/pomerium-console"
 branch = "main"
-path = "../proto"
+path = "pomerium"
 
 [[dependencies]]
 target = "github.com/envoyproxy/protoc-gen-validate"
 revision = "v0.6.1"
+path = "ext"
 
 [[dependencies]]
 target = "github.com/envoyproxy/data-plane-api"
 branch = "main"
+path = "ext"
 
 [[dependencies]]
 target = "github.com/cncf/xds"
 branch = "main"
+path = "ext"
 
 [[dependencies]]
 target = "github.com/googleapis/googleapis"
 branch = "master"
+path = "ext"
 

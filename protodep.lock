@@ -1,11 +1,11 @@
-proto_outdir = "./ext"
+proto_outdir = "./proto"
 
 [[dependencies]]
   target = "github.com/pomerium/pomerium/pkg/grpc"
   subgroup = ""
   revision = "d485ca8306aee63d84bb1bd9ecb44a33e0a40ce4"
   branch = "main"
-  path = "../proto"
+  path = "pomerium"
   protocol = ""
 
 [[dependencies]]
@@ -13,7 +13,7 @@ proto_outdir = "./ext"
   subgroup = ""
   revision = "9087bf7f28e0e23f807fe1c35897e655f1b74fec"
   branch = "main"
-  path = "../proto"
+  path = "pomerium"
   protocol = ""
 
 [[dependencies]]
@@ -21,15 +21,15 @@ proto_outdir = "./ext"
   subgroup = ""
   revision = "758c5fc3a13b71bdb7e851b0c1ee8f6232e0ce7d"
   branch = ""
-  path = ""
+  path = "ext"
   protocol = ""
 
 [[dependencies]]
   target = "github.com/envoyproxy/data-plane-api"
   subgroup = ""
-  revision = "2456249b613d8feec6040169ba20292ac0322088"
+  revision = "c03c6b8e8994ba2f7b74bc72421322bec1c1eebc"
   branch = "main"
-  path = ""
+  path = "ext"
   protocol = ""
 
 [[dependencies]]
@@ -37,13 +37,13 @@ proto_outdir = "./ext"
   subgroup = ""
   revision = "32f1caf87195bf3390061c29f18987e51ca56a88"
   branch = "main"
-  path = ""
+  path = "ext"
   protocol = ""
 
 [[dependencies]]
   target = "github.com/googleapis/googleapis"
   subgroup = ""
-  revision = "c1aba4ea3120415e21b89567c9ca55a7b6c91ccb"
+  revision = "6e21f1abdb1f23729660c9891f5efa4dc956c77d"
   branch = "master"
-  path = ""
+  path = "ext"
   protocol = ""

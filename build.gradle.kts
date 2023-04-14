@@ -56,11 +56,21 @@ tasks.register("downloadProtodep") {
 tasks.register("protodep", type=Exec::class) {
     dependsOn("downloadProtodep")
     inputs.file(file("protodep.toml"))
-    outputs.files(files("ext", "proto"))
+    outputs.dirs(files("proto/pomerium", "proto/ext"))
 
     val protodep = protodepDir.listFiles()[0]
     protodep.setExecutable(true)
     commandLine(protodep.absolutePath, "up", "-u")
+}
+
+//Hack hack to fix a import which does not work. Pomerium needs to fix this
+tasks.register("importHack") {
+    dependsOn("protodep")
+    doLast{
+        val file = File("proto/pomerium/databroker_svc.proto")
+        val updatedContent = file.readText().replace("github.com/pomerium/pomerium/pkg/grpc/databroker/databroker.proto", "databroker/databroker.proto")
+        file.writeText(updatedContent)
+    }
 }
 
 tasks.getByName<Test>("test") {
@@ -68,14 +78,15 @@ tasks.getByName<Test>("test") {
 }
 
 tasks.getByName<GenerateProtoTask>("generateProto") {
-    dependsOn("protodep")
-    addIncludeDir(files("./ext"))
+    dependsOn("importHack")
+    addIncludeDir(files("./proto/ext"))
+
 }
 
 sourceSets {
     main {
         proto {
-            srcDir("proto")
+            srcDir("proto/pomerium")
         }
     }
 }
